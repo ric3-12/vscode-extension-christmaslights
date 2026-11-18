@@ -63,11 +63,25 @@ Pair it with the matching color theme: `Ctrl+K Ctrl+T` → **Weihnachten Pixel**
 | Setting | Default | Description |
 | --- | --- | --- |
 | `weihnachtslichter.position` | `titelleiste` | `titelleiste` (title bar, behind the menu), `statusleiste` (status bar) or `ueberAllem` (on top of everything) |
+| `weihnachtslichter.animation` | `sparsam` | `sparsam` (pulses in fine steps, much less CPU), `fluessig` (perfectly smooth, most CPU) or `aus` (steady glow, no CPU) |
 | `weihnachtslichter.groesse` | `2` | Size of one pixel in screen pixels (1–4) |
 | `weihnachtslichter.tempo` | `1` | Pulse speed (`0.5` = slower, `2` = faster) |
 | `weihnachtslichter.abstandOben` | `0` | Only for `ueberAllem`: distance from the top edge in pixels |
 
 If your system has *reduce motion* turned on, the lights glow steadily instead of pulsing.
+
+### Performance
+
+The wire and the switched-off bulbs are a still background image. Only the glow is animated, using CSS `opacity` on a few layers, which the GPU can handle without repainting the title bar. By default the bulbs dim in fine steps instead of 60 frames per second. When the VS Code window is in the background (title bar position), the animation pauses completely.
+
+| Setup (measured in Chromium without GPU, 2500 px wide title bar) | CPU (one core) |
+| --- | --- |
+| Version 1.2 (animated SVG) | ~20 % |
+| Version 1.3, `fluessig` | ~13 % |
+| Version 1.3, `sparsam` (default) | ~7 % |
+| Version 1.3, window in background or `aus` | 0 % |
+
+With a GPU, the numbers in VS Code are lower.
 
 ## How it works
 

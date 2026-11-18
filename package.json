@@ -2,7 +2,7 @@
   "name": "weihnachtslichter",
   "displayName": "Weihnachtslichter 🎄",
   "description": "Pixel string lights with gently pulsing bulbs in your title bar + a Christmas color theme. / Pixel-Lichterkette mit pulsierenden Lämpchen und Weihnachts-Farbschema.",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "publisher": "ric3",
   "license": "MIT",
   "icon": "icon.png",
@@ -71,6 +71,21 @@
             "Schwebt ganz oben über allem (überdeckt Text)."
           ],
           "description": "Wo die Lichterkette hängt."
+        },
+        "weihnachtslichter.animation": {
+          "type": "string",
+          "default": "sparsam",
+          "enum": [
+            "sparsam",
+            "fluessig",
+            "aus"
+          ],
+          "enumDescriptions": [
+            "Pulsiert in feinen Stufen – braucht deutlich weniger CPU (empfohlen).",
+            "Pulsiert stufenlos – am schönsten, braucht am meisten CPU.",
+            "Leuchtet ruhig ohne Pulsieren – braucht keine CPU."
+          ],
+          "description": "Wie die Lämpchen pulsieren. Ist das VS-Code-Fenster nicht aktiv, pausiert die Animation automatisch (Titelleiste)."
         },
         "weihnachtslichter.groesse": {
           "type": "number",

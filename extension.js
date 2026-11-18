@@ -51,6 +51,7 @@ function currentCss() {
     scale: c.get('groesse', 2),
     speed: c.get('tempo', 1),
     offsetTop: c.get('abstandOben', 0),
+    animation: c.get('animation', 'sparsam'),
   });
 }
 
@@ -141,7 +142,7 @@ function activate(context) {
     vscode.commands.registerCommand('weihnachtslichter.ausschalten', disable),
     vscode.commands.registerCommand('weihnachtslichter.position', choosePosition),
     vscode.workspace.onDidChangeConfiguration((e) => {
-      const relevant = ['position', 'groesse', 'tempo', 'abstandOben'].some((k) => e.affectsConfiguration(`${CFG}.${k}`));
+      const relevant = ['position', 'animation', 'groesse', 'tempo', 'abstandOben'].some((k) => e.affectsConfiguration(`${CFG}.${k}`));
       if (!relevant) return;
       try {
         if (patchedNow()) {
