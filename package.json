@@ -1,8 +1,8 @@
 {
   "name": "weihnachtslichter",
   "displayName": "Weihnachtslichter 🎄",
-  "description": "Pixel string lights with gently pulsing bulbs in your title bar + a Christmas color theme. / Pixel-Lichterkette mit pulsierenden Lämpchen und Weihnachts-Farbschema.",
-  "version": "1.3.0",
+  "description": "Pixel string lights with gently pulsing bulbs in your VS Code title bar. / Pixel-Lichterkette mit pulsierenden Lämpchen für die Titelleiste.",
+  "version": "1.4.0",
   "publisher": "ric3",
   "license": "MIT",
   "icon": "icon.png",
@@ -10,7 +10,6 @@
     "vscode": "^1.80.0"
   },
   "categories": [
-    "Themes",
     "Other"
   ],
   "keywords": [
@@ -25,13 +24,6 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "themes": [
-      {
-        "label": "Weihnachten Pixel",
-        "uiTheme": "vs-dark",
-        "path": "./themes/weihnachten-color-theme.json"
-      }
-    ],
     "commands": [
       {
         "command": "weihnachtslichter.einschalten",

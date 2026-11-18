@@ -56,7 +56,7 @@ Some other things you can do:
 | **Lichterkette ausschalten** | Switch the lights off |
 | **Position der Lichterkette wählen** | Hang the lights in the title bar, the status bar or on top of everything |
 
-Pair it with the matching color theme: `Ctrl+K Ctrl+T` → **Weihnachten Pixel**.
+Pair it with the matching color themes from [Weihnachten Theme](https://marketplace.visualstudio.com/items?itemName=ric3.weihnachten-theme) ([GitHub](https://github.com/ric3-12/vscode-weihnachten-theme)): Tannengrün, Schnee and Lebkuchen.
 
 ## Settings
 
@@ -98,7 +98,7 @@ Eine Pixel-Lichterkette in Rot, Gold, Grün und Blau für die Titelleiste von VS
 
 1. `Ctrl+Shift+P` → **Weihnachtslichter: Lichterkette einschalten**
 2. **Fenster neu laden** klicken
-3. Optional das Farbschema wählen: `Ctrl+K Ctrl+T` → **Weihnachten Pixel**
+3. Passende Farbschemas gibt es separat: [Weihnachten Theme](https://marketplace.visualstudio.com/items?itemName=ric3.weihnachten-theme)
 
 Ausschalten mit **Lichterkette ausschalten**. Die Position (Titelleiste, Statusleiste oder über allem) wählst du mit **Position der Lichterkette wählen**.
 
