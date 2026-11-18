@@ -1,0 +1,114 @@
+{
+  "name": "weihnachtslichter",
+  "displayName": "Weihnachtslichter 🎄",
+  "description": "Pixel string lights with gently pulsing bulbs in your title bar + a Christmas color theme. / Pixel-Lichterkette mit pulsierenden Lämpchen und Weihnachts-Farbschema.",
+  "version": "1.2.3",
+  "publisher": "ric3",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "christmas",
+    "weihnachten",
+    "lights",
+    "pixel",
+    "theme"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Weihnachten Pixel",
+        "uiTheme": "vs-dark",
+        "path": "./themes/weihnachten-color-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "weihnachtslichter.einschalten",
+        "title": "Lichterkette einschalten",
+        "category": "Weihnachtslichter"
+      },
+      {
+        "command": "weihnachtslichter.ausschalten",
+        "title": "Lichterkette ausschalten",
+        "category": "Weihnachtslichter"
+      },
+      {
+        "command": "weihnachtslichter.position",
+        "title": "Position der Lichterkette wählen",
+        "category": "Weihnachtslichter"
+      }
+    ],
+    "configuration": {
+      "title": "Weihnachtslichter",
+      "properties": {
+        "weihnachtslichter.aktiv": {
+          "type": "boolean",
+          "default": false,
+          "description": "Wird von den Befehlen gesetzt. Nach einem VS-Code-Update wird angeboten, die Kette wieder einzuschalten."
+        },
+        "weihnachtslichter.position": {
+          "type": "string",
+          "default": "titelleiste",
+          "enum": [
+            "titelleiste",
+            "statusleiste",
+            "ueberAllem"
+          ],
+          "enumDescriptions": [
+            "Als Hintergrund der Titelleiste – Menü und Titel bleiben lesbar (empfohlen).",
+            "Als Hintergrund der Statusleiste unten.",
+            "Schwebt ganz oben über allem (überdeckt Text)."
+          ],
+          "description": "Wo die Lichterkette hängt."
+        },
+        "weihnachtslichter.groesse": {
+          "type": "number",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 4,
+          "description": "Grösse eines Pixels in Bildschirm-Pixeln (2 = Standard)."
+        },
+        "weihnachtslichter.tempo": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0.25,
+          "maximum": 4,
+          "description": "Pulsier-Tempo (1 = normal, 0.5 = langsamer, 2 = schneller)."
+        },
+        "weihnachtslichter.abstandOben": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 200,
+          "description": "Nur bei Position «ueberAllem»: Abstand vom oberen Fensterrand in Pixeln."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:uninstall": "node ./uninstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ric3-12/vscode-extension-christmaslights.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ric3-12/vscode-extension-christmaslights/issues"
+  },
+  "homepage": "https://github.com/ric3-12/vscode-extension-christmaslights#readme",
+  "galleryBanner": {
+    "color": "#0a130e",
+    "theme": "dark"
+  }
+}
