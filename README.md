@@ -1,42 +1,97 @@
-# Weihnachtslichter 🎄
+<p align="center">
+  <img src="icon.png" width="128" alt="Weihnachtslichter icon">
+</p>
 
-![Vorschau](images/vorschau.png)
+<h1 align="center">Weihnachtslichter 🎄</h1>
 
-Eine Pixel-Lichterkette in Rot, Gold, Grün und Blau am oberen Fensterrand. Jedes Lämpchen pulsiert in seinem eigenen Rhythmus, so wie eine echte Lichterkette. Dazu gibt es das Farbschema **Weihnachten Pixel**.
+<p align="center">
+  Hangs a string of pixel-art Christmas lights in your VS Code title bar. Every bulb pulses gently at its own pace, just like the real thing.
+</p>
 
-## Benutzung
+<p align="center">
+  <a href="https://github.com/ric3-12/vscode-extension-christmaslights/issues/new?labels=bug&template=bug_report.md&title=">Report a Bug</a>
+  ·
+  <a href="https://github.com/ric3-12/vscode-extension-christmaslights/issues/new?labels=enhancement&template=feature_request.md&title=">Request feature</a>
+</p>
+
+![Weihnachtslichter in the VS Code title bar](images/demo.gif)
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Using Weihnachtslichter](#using-weihnachtslichter)
+- [Settings](#settings)
+- [How it works](#how-it-works)
+- [Deutsch](#deutsch)
+- [Credits](#credits)
+- [Thank you](#thank-you)
+
+## Installation
+
+Install this extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ric3.weihnachtslichter).
+
+**OR**
+
+With VS Code open, search for `Weihnachtslichter` in the extension panel (`Ctrl+Shift+X` on Windows/Linux or `Cmd(⌘)+Shift+X` on macOS) and click install.
+
+**OR**
+
+With VS Code open, launch VS Code Quick Open (`Ctrl+P` on Windows/Linux or `Cmd(⌘)+P` on macOS), paste the following command, and press enter.
+
+```
+ext install ric3.weihnachtslichter
+```
+
+## Using Weihnachtslichter
+
+Congrats on installing some Christmas spirit! After installing, open the command palette with `Ctrl+Shift+P` on Windows/Linux or `Cmd(⌘)+Shift+P` on macOS.
+
+Run the **Weihnachtslichter: Lichterkette einschalten** command (`weihnachtslichter.einschalten`) and reload the window to switch the lights on.
+
+Some other things you can do:
+
+| Command | What it does |
+| --- | --- |
+| **Lichterkette einschalten** | Switch the lights on |
+| **Lichterkette ausschalten** | Switch the lights off |
+| **Position der Lichterkette wählen** | Hang the lights in the title bar, the status bar or on top of everything |
+
+Pair it with the matching color theme: `Ctrl+K Ctrl+T` → **Weihnachten Pixel**.
+
+## Settings
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `weihnachtslichter.position` | `titelleiste` | `titelleiste` (title bar, behind the menu), `statusleiste` (status bar) or `ueberAllem` (on top of everything) |
+| `weihnachtslichter.groesse` | `2` | Size of one pixel in screen pixels (1–4) |
+| `weihnachtslichter.tempo` | `1` | Pulse speed (`0.5` = slower, `2` = faster) |
+| `weihnachtslichter.abstandOben` | `0` | Only for `ueberAllem`: distance from the top edge in pixels |
+
+If your system has *reduce motion* turned on, the lights glow steadily instead of pulsing.
+
+## How it works
+
+Extensions can't draw on the VS Code interface itself. So the command injects a small `<style>` block into VS Code's `workbench.html`. This is the same approach as extensions like «Custom CSS and JS Loader». It also updates the checksum in `product.json`, so VS Code doesn't complain about a corrupt installation.
+
+- **After a VS Code update** the lights are gone. The extension asks whether to switch them on again.
+- **On uninstall** the extension removes the injected block automatically (after the next VS Code restart). To remove the lights right away, run **Lichterkette ausschalten**.
+- If VS Code is installed for all users, you need admin rights once. Snap and Flatpak installs are not supported.
+- If you still see «Your Code installation appears to be corrupt», restart VS Code completely. A window reload is not enough.
+
+## Deutsch
+
+Eine Pixel-Lichterkette in Rot, Gold, Grün und Blau für die Titelleiste von VS Code. Jedes Lämpchen pulsiert in seinem eigenen Rhythmus.
 
 1. `Ctrl+Shift+P` → **Weihnachtslichter: Lichterkette einschalten**
-2. **Fenster neu laden** klicken (falls nichts erscheint: VS Code ganz neu starten)
+2. **Fenster neu laden** klicken
 3. Optional das Farbschema wählen: `Ctrl+K Ctrl+T` → **Weihnachten Pixel**
 
-Ausschalten: **Weihnachtslichter: Lichterkette ausschalten**
+Ausschalten mit **Lichterkette ausschalten**. Die Position (Titelleiste, Statusleiste oder über allem) wählst du mit **Position der Lichterkette wählen**.
 
-## Einstellungen
+## Credits
 
-| Einstellung | Standard | Bedeutung |
-|---|---|---|
-| `weihnachtslichter.position` | `titelleiste` | `titelleiste` (hinter Menü und Titel), `statusleiste` oder `ueberAllem` – auch per Befehl «Position der Lichterkette wählen» |
-| `weihnachtslichter.groesse` | `2` | Pixelgrösse (1–4) |
-| `weihnachtslichter.tempo` | `1` | Pulsier-Tempo |
-| `weihnachtslichter.abstandOben` | `0` | Nur bei `ueberAllem`: Abstand vom oberen Rand |
+Pixel art, color theme and code by [ric3-12](https://github.com/ric3-12), created with the help of Claude (Anthropic).
 
-## Wie es funktioniert
+## Thank you
 
-Eine Extension darf normalerweise nichts über die VS-Code-Oberfläche zeichnen. Deshalb fügt der Befehl einen `<style>`-Block in die `workbench.html` der VS-Code-Installation ein. Diese Methode verwenden auch Extensions wie «Custom CSS and JS Loader». Die Prüfsumme in `product.json` wird dabei mit angepasst, damit keine Meldung «Installation beschädigt» erscheint.
-
-- Nach einem **VS-Code-Update** ist die Kette weg. Die Extension fragt dann, ob sie wieder eingeschaltet werden soll.
-- Beim **Deinstallieren** räumt die Extension den Eintrag automatisch auf (nach dem nächsten Neustart von VS Code). Sofort weg ist die Kette mit «Lichterkette ausschalten».
-- Wenn VS Code für alle Benutzer installiert ist, braucht es einmal Admin-Rechte. Snap- und Flatpak-Installationen funktionieren nicht.
-- In der Titelleiste läuft die Kette hinter dem Menü (File, Edit …) durch und verschwindet hinter Suchfeld und Icons und leuchtet nur in den freien Bereichen.
-- Ist im System «Bewegung reduzieren» aktiviert, leuchtet die Kette ruhig, ohne zu pulsieren.
-
----
-
-## English
-
-Pixel-art string lights in red, gold, green and blue for your VS Code title bar. Every bulb pulses gently at its own pace, like real Christmas lights. Includes the **Weihnachten Pixel** color theme.
-
-**Usage:** `Ctrl+Shift+P` → **Weihnachtslichter: Lichterkette einschalten** (turn on) → reload the window. Turn off with **Lichterkette ausschalten**. Choose the position (title bar, status bar or on top of everything) with **Position der Lichterkette wählen**.
-
-**How it works:** Extensions can't draw on the VS Code UI, so the command injects a `<style>` block into VS Code's `workbench.html` (the same approach as «Custom CSS and JS Loader») and updates the checksum in `product.json`. After a VS Code update you'll be asked to turn the lights on again. On uninstall the extension removes the injected block (after the next restart). If VS Code is installed for all users, you need admin rights once. Snap/Flatpak installs are not supported.
+Thanks to all the [contributors](https://github.com/ric3-12/vscode-extension-christmaslights/graphs/contributors) to this project. Frohe Weihnachten! 🎄
