@@ -104,7 +104,7 @@ Ausschalten mit **Lichterkette ausschalten**. Die Position (Titelleiste, Statusl
 
 ## Credits
 
-Pixel art, color theme and code by [ric3-12](https://github.com/ric3-12).
+Pixel art, color theme and code by [ric3-12](https://github.com/ric3-12). **Has been Coded with Claude as an experiment**
 
 ## Thank you
 
