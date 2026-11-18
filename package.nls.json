@@ -1,0 +1,20 @@
+{
+  "displayName": "Christmas Lights for VS Code 🎄",
+  "description": "Pixel-art string lights with gently pulsing bulbs in your VS Code title bar.",
+  "category": "Christmas Lights",
+  "cmd.on": "Turn On Christmas Lights",
+  "cmd.off": "Turn Off Christmas Lights",
+  "cmd.position": "Choose Position of Christmas Lights",
+  "cfg.aktiv": "Set by the commands. After a VS Code update you will be asked to turn the lights on again.",
+  "cfg.position": "Where the Christmas lights hang.",
+  "cfg.position.titelleiste": "Behind the title bar – menu and title stay readable (recommended).",
+  "cfg.position.statusleiste": "Behind the status bar at the bottom.",
+  "cfg.position.ueberAllem": "Floats at the very top, above everything (covers text).",
+  "cfg.animation": "How the bulbs pulse. When the VS Code window is in the background, the animation pauses automatically (title bar position).",
+  "cfg.animation.sparsam": "Pulses in fine steps – uses much less CPU (recommended).",
+  "cfg.animation.fluessig": "Pulses perfectly smoothly – looks best, uses the most CPU.",
+  "cfg.animation.aus": "Glows steadily without pulsing – uses no CPU.",
+  "cfg.groesse": "Size of one pixel in screen pixels (2 = default).",
+  "cfg.tempo": "Pulse speed (1 = normal, 0.5 = slower, 2 = faster).",
+  "cfg.abstandOben": "Only for position «ueberAllem»: distance from the top edge in pixels."
+}

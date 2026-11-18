@@ -1,0 +1,20 @@
+{
+  "displayName": "Christmas Lights for VS Code 🎄",
+  "description": "Pixel-Lichterkette mit sanft pulsierenden Lämpchen für die Titelleiste von VS Code.",
+  "category": "Weihnachtslichter",
+  "cmd.on": "Lichterkette einschalten",
+  "cmd.off": "Lichterkette ausschalten",
+  "cmd.position": "Position der Lichterkette wählen",
+  "cfg.aktiv": "Wird von den Befehlen gesetzt. Nach einem VS-Code-Update wird angeboten, die Kette wieder einzuschalten.",
+  "cfg.position": "Wo die Lichterkette hängt.",
+  "cfg.position.titelleiste": "Als Hintergrund der Titelleiste – Menü und Titel bleiben lesbar (empfohlen).",
+  "cfg.position.statusleiste": "Als Hintergrund der Statusleiste unten.",
+  "cfg.position.ueberAllem": "Schwebt ganz oben über allem (überdeckt Text).",
+  "cfg.animation": "Wie die Lämpchen pulsieren. Ist das VS-Code-Fenster nicht aktiv, pausiert die Animation automatisch (Titelleiste).",
+  "cfg.animation.sparsam": "Pulsiert in feinen Stufen – braucht deutlich weniger CPU (empfohlen).",
+  "cfg.animation.fluessig": "Pulsiert stufenlos – am schönsten, braucht am meisten CPU.",
+  "cfg.animation.aus": "Leuchtet ruhig ohne Pulsieren – braucht keine CPU.",
+  "cfg.groesse": "Grösse eines Pixels in Bildschirm-Pixeln (2 = Standard).",
+  "cfg.tempo": "Pulsier-Tempo (1 = normal, 0.5 = langsamer, 2 = schneller).",
+  "cfg.abstandOben": "Nur bei Position «ueberAllem»: Abstand vom oberen Fensterrand in Pixeln."
+}

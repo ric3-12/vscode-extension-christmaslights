@@ -74,10 +74,10 @@ function fixChecksum(htmlPath, html) {
 
 function writeHtml(enable) {
   const htmlPath = findWorkbenchHtml();
-  if (!htmlPath) throw new Error('workbench.html wurde nicht gefunden.');
+  if (!htmlPath) throw new Error(vscode.l10n.t('workbench.html was not found.'));
   let html = stripPatch(fs.readFileSync(htmlPath, 'utf8'));
   if (enable) {
-    if (!html.includes('</head>')) throw new Error('Unerwartetes Format von workbench.html.');
+    if (!html.includes('</head>')) throw new Error(vscode.l10n.t('Unexpected format of workbench.html.'));
     html = html.replace('</head>', `${START}<style>${currentCss()}</style>${END}</head>`);
   }
   fs.writeFileSync(htmlPath, html, 'utf8');
@@ -90,7 +90,7 @@ function patchedNow() {
 }
 
 async function askReload(msg) {
-  const btn = await vscode.window.showInformationMessage(msg, 'Fenster neu laden');
+  const btn = await vscode.window.showInformationMessage(msg, vscode.l10n.t('Reload Window'));
   if (btn) vscode.commands.executeCommand('workbench.action.reloadWindow');
 }
 
@@ -98,11 +98,10 @@ function handleError(err) {
   const code = err && err.code;
   if (code === 'EACCES' || code === 'EPERM' || code === 'EROFS') {
     vscode.window.showErrorMessage(
-      'Keine Schreibrechte auf die VS-Code-Installation. Starte VS Code einmal als Administrator ' +
-      '(Linux: Installationsordner beschreibbar machen; Snap/Flatpak wird nicht unterstützt).'
+      vscode.l10n.t('No write access to the VS Code installation. Start VS Code once as administrator (Linux: make the installation folder writable; Snap/Flatpak is not supported).')
     );
   } else {
-    vscode.window.showErrorMessage('Weihnachtslichter: ' + (err && err.message ? err.message : String(err)));
+    vscode.window.showErrorMessage(vscode.l10n.t('Christmas Lights: {0}', err && err.message ? err.message : String(err)));
   }
 }
 
@@ -112,7 +111,7 @@ async function enable() {
   try {
     writeHtml(true);
     await vscode.workspace.getConfiguration(CFG).update('aktiv', true, vscode.ConfigurationTarget.Global);
-    askReload('🎄 Lichterkette eingeschaltet. Fenster neu laden, damit sie erscheint.');
+    askReload(vscode.l10n.t('🎄 Christmas lights are on. Reload the window to see them.'));
   } catch (e) { handleError(e); }
 }
 
@@ -120,17 +119,17 @@ async function disable() {
   try {
     writeHtml(false);
     await vscode.workspace.getConfiguration(CFG).update('aktiv', false, vscode.ConfigurationTarget.Global);
-    askReload('Lichterkette ausgeschaltet. Fenster neu laden, damit sie verschwindet.');
+    askReload(vscode.l10n.t('Christmas lights are off. Reload the window to remove them.'));
   } catch (e) { handleError(e); }
 }
 
 async function choosePosition() {
   const items = [
-    { label: '$(layout-panel-off) Titelleiste', description: 'hinter Menü und Titel (empfohlen)', value: 'titelleiste' },
-    { label: '$(layout-statusbar) Statusleiste', description: 'unten, hinter den Statusanzeigen', value: 'statusleiste' },
-    { label: '$(layers) Über allem', description: 'schwebt ganz oben über allem', value: 'ueberAllem' },
+    { label: '$(layout-panel-off) ' + vscode.l10n.t('Title bar'), description: vscode.l10n.t('behind the menu and title (recommended)'), value: 'titelleiste' },
+    { label: '$(layout-statusbar) ' + vscode.l10n.t('Status bar'), description: vscode.l10n.t('at the bottom, behind the status items'), value: 'statusleiste' },
+    { label: '$(layers) ' + vscode.l10n.t('On top of everything'), description: vscode.l10n.t('floats at the very top, above everything'), value: 'ueberAllem' },
   ];
-  const pick = await vscode.window.showQuickPick(items, { placeHolder: 'Wo soll die Lichterkette hängen?' });
+  const pick = await vscode.window.showQuickPick(items, { placeHolder: vscode.l10n.t('Where should the Christmas lights hang?') });
   if (!pick) return;
   await vscode.workspace.getConfiguration(CFG).update('position', pick.value, vscode.ConfigurationTarget.Global);
   if (!patchedNow()) enable(); // Änderung an der Einstellung patcht sonst automatisch neu
@@ -147,7 +146,7 @@ function activate(context) {
       try {
         if (patchedNow()) {
           writeHtml(true);
-          askReload('Lichterkette angepasst. Fenster neu laden, um die Änderung zu sehen.');
+          askReload(vscode.l10n.t('Christmas lights updated. Reload the window to see the change.'));
         }
       } catch (err) { handleError(err); }
     })
@@ -157,9 +156,10 @@ function activate(context) {
   try {
     const wanted = vscode.workspace.getConfiguration(CFG).get('aktiv', false);
     if (wanted && !patchedNow()) {
+      const on = vscode.l10n.t('Turn On'), no = vscode.l10n.t('No');
       vscode.window
-        .showInformationMessage('VS Code wurde aktualisiert – Lichterkette wieder einschalten?', 'Einschalten', 'Nein')
-        .then((b) => (b === 'Einschalten' ? enable() : b === 'Nein' && disable()));
+        .showInformationMessage(vscode.l10n.t('VS Code was updated. Turn the Christmas lights on again?'), on, no)
+        .then((b) => (b === on ? enable() : b === no && disable()));
     }
   } catch { /* ignorieren */ }
 }

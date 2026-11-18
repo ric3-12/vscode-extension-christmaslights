@@ -1,8 +1,8 @@
 {
   "name": "weihnachtslichter",
-  "displayName": "Weihnachtslichter 🎄",
-  "description": "Pixel string lights with gently pulsing bulbs in your VS Code title bar. / Pixel-Lichterkette mit pulsierenden Lämpchen für die Titelleiste.",
-  "version": "1.4.0",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "1.5.0",
   "publisher": "ric3",
   "license": "MIT",
   "icon": "icon.png",
@@ -14,10 +14,11 @@
   ],
   "keywords": [
     "christmas",
-    "weihnachten",
     "lights",
+    "xmas",
+    "weihnachten",
     "pixel",
-    "theme"
+    "holiday"
   ],
   "main": "./extension.js",
   "activationEvents": [
@@ -27,27 +28,27 @@
     "commands": [
       {
         "command": "weihnachtslichter.einschalten",
-        "title": "Lichterkette einschalten",
-        "category": "Weihnachtslichter"
+        "title": "%cmd.on%",
+        "category": "%category%"
       },
       {
         "command": "weihnachtslichter.ausschalten",
-        "title": "Lichterkette ausschalten",
-        "category": "Weihnachtslichter"
+        "title": "%cmd.off%",
+        "category": "%category%"
       },
       {
         "command": "weihnachtslichter.position",
-        "title": "Position der Lichterkette wählen",
-        "category": "Weihnachtslichter"
+        "title": "%cmd.position%",
+        "category": "%category%"
       }
     ],
     "configuration": {
-      "title": "Weihnachtslichter",
+      "title": "%category%",
       "properties": {
         "weihnachtslichter.aktiv": {
           "type": "boolean",
           "default": false,
-          "description": "Wird von den Befehlen gesetzt. Nach einem VS-Code-Update wird angeboten, die Kette wieder einzuschalten."
+          "description": "%cfg.aktiv%"
         },
         "weihnachtslichter.position": {
           "type": "string",
@@ -58,11 +59,11 @@
             "ueberAllem"
           ],
           "enumDescriptions": [
-            "Als Hintergrund der Titelleiste – Menü und Titel bleiben lesbar (empfohlen).",
-            "Als Hintergrund der Statusleiste unten.",
-            "Schwebt ganz oben über allem (überdeckt Text)."
+            "%cfg.position.titelleiste%",
+            "%cfg.position.statusleiste%",
+            "%cfg.position.ueberAllem%"
           ],
-          "description": "Wo die Lichterkette hängt."
+          "description": "%cfg.position%"
         },
         "weihnachtslichter.animation": {
           "type": "string",
@@ -73,32 +74,32 @@
             "aus"
           ],
           "enumDescriptions": [
-            "Pulsiert in feinen Stufen – braucht deutlich weniger CPU (empfohlen).",
-            "Pulsiert stufenlos – am schönsten, braucht am meisten CPU.",
-            "Leuchtet ruhig ohne Pulsieren – braucht keine CPU."
+            "%cfg.animation.sparsam%",
+            "%cfg.animation.fluessig%",
+            "%cfg.animation.aus%"
           ],
-          "description": "Wie die Lämpchen pulsieren. Ist das VS-Code-Fenster nicht aktiv, pausiert die Animation automatisch (Titelleiste)."
+          "description": "%cfg.animation%"
         },
         "weihnachtslichter.groesse": {
           "type": "number",
           "default": 2,
           "minimum": 1,
           "maximum": 4,
-          "description": "Grösse eines Pixels in Bildschirm-Pixeln (2 = Standard)."
+          "description": "%cfg.groesse%"
         },
         "weihnachtslichter.tempo": {
           "type": "number",
           "default": 1,
           "minimum": 0.25,
           "maximum": 4,
-          "description": "Pulsier-Tempo (1 = normal, 0.5 = langsamer, 2 = schneller)."
+          "description": "%cfg.tempo%"
         },
         "weihnachtslichter.abstandOben": {
           "type": "number",
           "default": 0,
           "minimum": 0,
           "maximum": 200,
-          "description": "Nur bei Position «ueberAllem»: Abstand vom oberen Fensterrand in Pixeln."
+          "description": "%cfg.abstandOben%"
         }
       }
     }
@@ -117,5 +118,6 @@
   "galleryBanner": {
     "color": "#0a130e",
     "theme": "dark"
-  }
+  },
+  "l10n": "./l10n"
 }

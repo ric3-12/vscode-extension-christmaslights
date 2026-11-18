@@ -1,0 +1,20 @@
+{
+  "workbench.html was not found.": "workbench.html wurde nicht gefunden.",
+  "Unexpected format of workbench.html.": "Unerwartetes Format von workbench.html.",
+  "Reload Window": "Fenster neu laden",
+  "No write access to the VS Code installation. Start VS Code once as administrator (Linux: make the installation folder writable; Snap/Flatpak is not supported).": "Keine Schreibrechte auf die VS-Code-Installation. Starte VS Code einmal als Administrator (Linux: Installationsordner beschreibbar machen; Snap/Flatpak wird nicht unterstützt).",
+  "Christmas Lights: {0}": "Weihnachtslichter: {0}",
+  "🎄 Christmas lights are on. Reload the window to see them.": "🎄 Lichterkette eingeschaltet. Fenster neu laden, damit sie erscheint.",
+  "Christmas lights are off. Reload the window to remove them.": "Lichterkette ausgeschaltet. Fenster neu laden, damit sie verschwindet.",
+  "Christmas lights updated. Reload the window to see the change.": "Lichterkette angepasst. Fenster neu laden, um die Änderung zu sehen.",
+  "Title bar": "Titelleiste",
+  "behind the menu and title (recommended)": "hinter Menü und Titel (empfohlen)",
+  "Status bar": "Statusleiste",
+  "at the bottom, behind the status items": "unten, hinter den Statusanzeigen",
+  "On top of everything": "Über allem",
+  "floats at the very top, above everything": "schwebt ganz oben über allem",
+  "Where should the Christmas lights hang?": "Wo soll die Lichterkette hängen?",
+  "VS Code was updated. Turn the Christmas lights on again?": "VS Code wurde aktualisiert – Lichterkette wieder einschalten?",
+  "Turn On": "Einschalten",
+  "No": "Nein"
+}
